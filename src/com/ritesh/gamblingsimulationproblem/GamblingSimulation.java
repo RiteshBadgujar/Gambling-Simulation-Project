@@ -8,9 +8,10 @@ public class GamblingSimulation {
 	private static final int PER_GAME_BET=1;
 	private static final int WIN=1;
 	private static final int LOOSE=0;
+	
 	private static final int[] winAmount = new int[20];
 	private static final int[] looseAmount = new int[20];
-	
+
 	static int playStatus;
 	
 	public static void gameStatus() {
@@ -23,6 +24,8 @@ public class GamblingSimulation {
 	public static void gamePlay() {
 		
 		Random random=new Random();
+		int total_win_day =0;
+		int total_loose_day =0;
 		
 		for(int i = 0;i <20;i++) {
 			
@@ -43,21 +46,25 @@ public class GamblingSimulation {
 				}
 				
 				if(winStack == PER_DAY_STACK / 2 ) {
+					total_win_day += 1;
 					break;
 				}
 				if( looseStack == PER_DAY_STACK / 2) {
+					total_loose_day += 1;
 					break;
 				}	
 			}
+			
 			winAmount[i]=winStack;
 			looseAmount[i]=looseStack;
 			
 			System.out.println("Loose Game : "+looseStack);
-			System.out.println("Win Game :"+winStack);
+			System.out.println("Win Game : "+winStack);
 			System.out.println("-------------");	
 			
 		}
-	
+		System.out.println("Total Montly Win Day : "+total_win_day);
+		System.out.println("Total Montly Loose Day : "+total_loose_day);
 	 }
     
 	public static void main(String[] args) {
