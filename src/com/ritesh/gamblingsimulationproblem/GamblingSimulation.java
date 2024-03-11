@@ -1,6 +1,7 @@
 package com.ritesh.gamblingsimulationproblem;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class GamblingSimulation {
 	
@@ -11,15 +12,16 @@ public class GamblingSimulation {
 	
 	private static final int[] winAmount = new int[20];
 	private static final int[] looseAmount = new int[20];
+	
 	private static int[] maxwin=new int[20];
 	private static int[] maxloose=new int[20];
+	
 	private static int winmax=0;
 	private static int losemax=0;
-	
 	private static int winindex=0;
 	private static int loseindex=0;
+	private static int userChoise;
 	
-
 	static int playStatus;
 	
 	public static void gameStatus() {
@@ -35,6 +37,8 @@ public class GamblingSimulation {
 		int total_win_day =0;
 		int total_loose_day =0;
 		
+		 do {
+			 
 		for(int i = 0;i <20;i++) {
 			
 			 System.out.println("Day :"+(i+1));
@@ -91,10 +95,20 @@ public class GamblingSimulation {
 			System.out.println("-------------");	
 			
 		}
-		System.out.println(loseindex+" Unlucky day , loss by Rs. : "+losemax);
+		System.out.println(loseindex+" Unlucky day & loss by Rs. : "+losemax);
 		System.out.println(winindex +" Lucky day  & win By RS.  : "+winmax);
 		System.out.println("Total Montly Win Day : "+total_win_day);
 		System.out.println("Total Montly Loose Day : "+total_loose_day);
+		
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("\nEnter the Play Again (Yes - 1) ( No - 2): ");
+		userChoise=scanner.nextInt();
+		System.out.println(userChoise);
+		 
+		}
+		 
+		 while (userChoise == 1);
+		  
 	 }
     
 	public static void main(String[] args) {
